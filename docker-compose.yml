@@ -1,0 +1,35 @@
+services:
+  web:
+    container_name: 'quest_board-web'
+    build:
+      context: ./docker/web
+    ports:
+      - 8000:80
+    depends_on:
+      - app
+    volumes:
+      - ./src/:/app
+
+  app:
+    container_name: 'quest_board-app'
+    build:
+      context: ./docker/app
+    volumes:
+      - ./src/:/app
+
+  db:
+    build:
+      context: ./docker/db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: QuestBoard
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - quest_board-volume:/var/lib/mysql
+
+volumes:
+  quest_board-volume:
