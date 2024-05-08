@@ -8,22 +8,25 @@ services:
     depends_on:
       - app
     volumes:
-      - ./src/:/app
+      - ./src:/app
 
   app:
     container_name: 'quest_board-app'
     build:
       context: ./docker/app
     volumes:
-      - ./src/:/app
+      - ./src:/app
+    depends_on:
+      - db
 
   db:
+    container_name: 'quest_board-db'
     build:
       context: ./docker/db
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: QuestBoard
+      MYSQL_DATABASE: quest_board
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
