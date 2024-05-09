@@ -1,3 +1,3 @@
 # 業務フロー
 
-![業務フロー drawio](https://github.com/shtk0llq/QuestBoard/assets/119676984/c2aa28a9-8191-4eaa-8c92-cfb00e7c7118)
+[Figma](https://www.figma.com/file/OvoZwQdtcAgcMd2Ytci5Vd/%E6%A5%AD%E5%8B%99%E3%83%95%E3%83%AD%E3%83%BC?type=whiteboard&node-id=0%3A1&t=YQ81zXsrH60dZTZo-1)
