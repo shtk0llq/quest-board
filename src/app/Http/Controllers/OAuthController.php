@@ -55,6 +55,24 @@ class OAuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/questions');
+    }
+
+    /**
+     * ユーザーをアプリケーションからログアウトさせる。
+     */
+    public function logout(Request $request): RedirectResponse | JsonResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'ログアウトに成功しました。']);
+        }
+
+        return redirect('/login');
     }
 }
