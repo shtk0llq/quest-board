@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './home';
 import Login from './login';
 import NotFound from './notfound';
+import Question from './question';
 
 const container: HTMLElement | null = document.getElementById('app');
 const root: Root = createRoot(container!);
@@ -14,6 +15,7 @@ function App(): React.JSX.Element {
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Home />} />
+				<Route path='/questions' element={<Question />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
